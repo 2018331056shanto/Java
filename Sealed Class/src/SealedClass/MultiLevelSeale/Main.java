@@ -30,6 +30,11 @@ public class Main {
         Square rectangle1 = new Rectangle();
         rectangle1.draw();
         rectangle1.paint();
+        Circle circle2=new Circle3d();
+        circle2.draw();
+        circle2.paint();
+        Shape circle3=new Circle3d();
+        circle3.draw();
 
     }
 }
