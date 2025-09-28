@@ -1,15 +1,14 @@
-package group;
+package partitioningBy;
 
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
  * @author: Ashraful Islam Shanto
  * <p>Date:9/14/25</p>
- * <p>Time:5:01 PM</p>
+ * <p>Time:3:09 PM</p>
  */
-public class GroupByNameAndGetEvenAgesFunctionalStyle {
+public class PartitionBasedOnEvenOddAgeUsePartition {
     public static List<Person> createPeople() {
         return List.of(
 
@@ -25,10 +24,12 @@ public class GroupByNameAndGetEvenAgesFunctionalStyle {
         );
 
     }
-    public static void main(String[] args) {
 
-        Map<String,List<Integer>> evenAgeByName=createPeople().stream()
-                .collect(Collectors.groupingBy(Person::getName,Collectors.filtering(person -> person.getAge()%2==0,Collectors.mapping(Person::getAge,Collectors.toList()))));
-        System.out.println(evenAgeByName);
+    public static void main(String[] args) {
+        System.out.println(
+
+                createPeople().stream()
+                        .collect(Collectors.partitioningBy(person->(person.getAge()&2)==0))
+        );
     }
 }

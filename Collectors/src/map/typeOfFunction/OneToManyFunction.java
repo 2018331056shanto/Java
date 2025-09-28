@@ -1,14 +1,16 @@
-package partition;
+package map.typeOfFunction;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * @author: Ashraful Islam Shanto
- * <p>Date:9/14/25</p>
- * <p>Time:3:09 PM</p>
+ * <p>Date:9/28/25</p>
+ * <p>Time:10:40 AM</p>
  */
-public class PartitionBasedOnEvenOddAgeUsePartition {
+
+public class OneToManyFunction {
     public static List<Person> createPeople() {
         return List.of(
 
@@ -26,10 +28,13 @@ public class PartitionBasedOnEvenOddAgeUsePartition {
     }
 
     public static void main(String[] args) {
-        System.out.println(
 
-                createPeople().stream()
-                        .collect(Collectors.partitioningBy(person->(person.getAge()&2)==0))
-        );
+        List<Integer> numbers=List.of(1,2,4);
+
+        System.out.println(numbers.stream()
+                .map(e->List.of(e-1,e+1)) //one-to-many function
+                .collect(toList()));
+
+
     }
 }

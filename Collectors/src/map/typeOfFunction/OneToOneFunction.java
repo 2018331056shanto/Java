@@ -1,6 +1,4 @@
-package partition;
-
-
+package map.typeOfFunction;
 
 import java.util.List;
 
@@ -8,10 +6,10 @@ import static java.util.stream.Collectors.toList;
 
 /**
  * @author: Ashraful Islam Shanto
- * <p>Date:9/13/25</p>
- * <p>Time:8:23 PM</p>
+ * <p>Date:9/28/25</p>
+ * <p>Time:10:38 AM</p>
  */
-public class PartitionBasedOnEvenOddNormally {
+public class OneToOneFunction {
     public static List<Person> createPeople() {
         return List.of(
 
@@ -29,20 +27,17 @@ public class PartitionBasedOnEvenOddNormally {
     }
 
     public static void main(String[] args) {
-        List<Person>people=createPeople();
 
-        List<Person>evenAged=people.stream()
-                .filter(person -> person.getAge()%2==0)
-                .collect(toList());
-        List<Person>oddAged=people.stream()
-                .filter(person -> person.getAge()%2==1)
-                .collect(toList());
-        System.out.println(evenAged);
-        System.out.println(oddAged);
+        List<Integer> numbers=List.of(1,2,4);
+
+        System.out.println(numbers.stream()
+                .map(e->e*2) //one-to-one function
+                .collect(toList()));
+
 
     }
 }
- class Person {
+class Person {
 
     private String name;
     private int age;
@@ -65,4 +60,3 @@ public class PartitionBasedOnEvenOddNormally {
         return "Name : " + this.name + " Age: " + this.age;
     }
 }
-

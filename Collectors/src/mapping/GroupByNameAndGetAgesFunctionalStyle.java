@@ -1,4 +1,4 @@
-package group;
+package mapping;
 
 import java.util.List;
 import java.util.Map;
@@ -31,5 +31,28 @@ public class GroupByNameAndGetAgesFunctionalStyle {
                 .collect(Collectors.groupingBy(Person::getName,Collectors.mapping(Person::getAge, Collectors.toList())));
 
         System.out.println(ageByName);
+    }
+}
+class Person {
+
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public String toString() {
+
+        return "Name : " + this.name + " Age: " + this.age;
     }
 }
